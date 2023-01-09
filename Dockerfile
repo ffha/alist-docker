@@ -8,5 +8,7 @@ FROM alpine
 WORKDIR /opt/alist
 COPY --from=build /app/bin/alist ./
 RUN apk add --no-cache tini
+LABEL org.opencontainers.image.description "A file list program that supports multiple storage, powered by Gin and Solidjs."
+LABEL org.opencontainers.image.authors="fthasdd@090124.xyz"
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["/opt/alist/alist", "server", "--no-prefix"]
