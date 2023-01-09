@@ -9,4 +9,4 @@ WORKDIR /opt/alist
 COPY --from=build /app/bin/alist ./
 RUN apk add --no-cache tini
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD ["/opt/alist/alist"]
+CMD ["/opt/alist/alist", "server", "--no-prefix"]
